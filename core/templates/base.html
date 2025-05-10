@@ -18,16 +18,20 @@
         <img src="{% static 'img/logo.svg' %}" alt="Logo da Equipe" class="logo">
       </a>
       <nav class="menu">
-        <a href="{% url 'home' %}#projetos">Projetos</a>
-        <a href="{% url 'contato' %}">Contato</a>
+        {% if request.resolver_match.url_name != 'login' and request.resolver_match.url_name != 'cadastro' %}
+          <a href="{% url 'home' %}#projetos">Projetos</a>
+          <a href="{% url 'contato' %}">Contato</a>
+        {% endif %}
 
         {% if user.is_authenticated %}
-            <form method="post" action="{% url 'logout' %}" class="form-logout">
-           {% csrf_token %}
+          <form method="post" action="{% url 'logout' %}" class="form-logout">
+            {% csrf_token %}
             <button type="submit" class="btn-logout">Sair</button>
-           </form>
+          </form>
         {% else %}
-          <a href="{% url 'login' %}">Login</a>
+          {% if request.resolver_match.url_name != 'login' and request.resolver_match.url_name != 'cadastro' %}
+            <a class="login-btn" href="{% url 'login' %}">Login</a>
+          {% endif %}
         {% endif %}
       </nav>
     </header>

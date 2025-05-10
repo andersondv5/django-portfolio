@@ -5,12 +5,12 @@
 
 {% block content %}
 
-<form method="get">
+<form method="get" class="form-filtro">
     <input type="text" name="busca" placeholder="Buscar..." value="{{ request.GET.busca }}">
     <select name="ordenar_por">
         <option value="titulo" {% if request.GET.ordenar_por == 'titulo' %}selected{% endif %}>Título (A-Z)</option>
     </select>
-    <button type="submit">Filtrar</button>
+    <button type="submit" class="btn-filtrar">Filtrar</button>
 </form>
 
 

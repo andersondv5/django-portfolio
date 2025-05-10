@@ -8,6 +8,49 @@ body {
   line-height: 1.6;
 }
 
+.form-filtro {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.form-filtro input[type="text"],
+.form-filtro select {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.form-filtro input[type="text"]:focus,
+.form-filtro select:focus {
+  border-color: #007bff;
+}
+
+.btn-filtrar {
+  padding: 0.5rem 1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-filtrar:hover {
+  background-color: #0056b3;
+}
+
+
+.login{
+  padding-top: 120px;
+}
+
 .topo {
   display: flex;
   align-items: center;
@@ -20,18 +63,30 @@ body {
   gap: 20px;
 }
 
+.login form,
+.contato form{
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.login-btn{
+  background: #000;
+  color: #fff;
+}
+
 .form-logout {
   margin: 0;
 }
 
 .menu a {
-  padding: 10px 14px;
+  padding: 10px 18px;
   border-radius: 4px;
   font-weight: 500;
+  transition: .2s;
 }
 
 .menu a:hover {
-  background: #e7e7e7;
+  background: #222;
+  color: #fff;
 }
 
 * {
@@ -104,9 +159,9 @@ form {
   padding: 1.5rem;
   border-radius: 8px;
   background-color: #fff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin-bottom: 2rem;
 }
+
 
 input,
 textarea {

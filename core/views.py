@@ -15,11 +15,10 @@ def contato_view(request):
     if request.method == 'POST':
         form = ContatoForm(request.POST)
         if form.is_valid():
-            form.save()
+            form.save()  
             return redirect('contato_sucesso')
     else:
         form = ContatoForm()
-
     return render(request, 'contato.html', {'form': form})
 
 def contato_sucesso(request):
