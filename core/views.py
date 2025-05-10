@@ -4,13 +4,13 @@ from .forms import ContatoForm
 from .forms import FormCadastro, FormLogin
 from .models import Projeto
 
-# view para interface de home
+# view de projetos na tela de home, onde limita a exibição de projetos para no máximo de 3
 def home(request):
     projetos_home = Projeto.objects.all()[:3]
     return render(request, 'home.html', {'projetos': projetos_home})
 
 
-#view para formulário contato que direciona para contato_sucesso.html
+#view para formulário de contato que direciona para contato_sucesso.html
 def contato_view(request):
     if request.method == 'POST':
         form = ContatoForm(request.POST)
@@ -24,7 +24,7 @@ def contato_view(request):
 def contato_sucesso(request):
     return render(request, 'contato_sucesso.html')
 
-#view para sessão de projetos
+#view para sessão de projetos, mostram todos os projetos listados que foram adicionados no admin
 def projetos_view(request):
     busca = request.GET.get('busca', '')
     ordenar_por = request.GET.get('ordenar_por', 'titulo')
@@ -39,7 +39,7 @@ def projetos_view(request):
 
     return render(request, 'projetos.html', {'projetos': projetos})
 
-
+# view para sessão de cadastro
 def cadastro_view(request):
     if request.method == 'POST':
         form = FormCadastro(request.POST)
@@ -51,6 +51,7 @@ def cadastro_view(request):
         form = FormCadastro()
     return render(request, 'cadastro.html', {'form': form})
 
+# view para a tela de login
 def login_view(request):
     if request.method == 'POST':
         form = FormLogin(data=request.POST)
@@ -62,6 +63,7 @@ def login_view(request):
         form = FormLogin()
     return render(request, 'login.html', {'form': form})
 
+# view para sessão de logout, quando o usuário clica em em "sair", é redirecionado para a tela de login novamente
 def logout_view(request):
     logout(request)
-    return redirect('home')
+    return redirect('login')

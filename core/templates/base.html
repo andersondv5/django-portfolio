@@ -26,8 +26,9 @@
         {% if user.is_authenticated %}
           <form method="post" action="{% url 'logout' %}" class="form-logout">
             {% csrf_token %}
-            <button type="submit" class="btn-logout">Sair</button>
+            <button type="submit">Sair</button>
           </form>
+
         {% else %}
           {% if request.resolver_match.url_name != 'login' and request.resolver_match.url_name != 'cadastro' %}
             <a class="login-btn" href="{% url 'login' %}">Login</a>

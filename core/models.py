@@ -1,5 +1,4 @@
 from django.db import models
-from django.core.exceptions import ValidationError
 
 #modelo para formulário e contato
 class Contato(models.Model):
