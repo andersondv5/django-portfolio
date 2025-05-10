@@ -4,10 +4,14 @@ Este é um portfólio acadêmico desenvolvido utilizando o framework Django, pro
 
 ## Funcionalidades
 
-- Página inicial com uma introdução sobre o desenvolvedor.
-- Seção de projetos destacando os trabalhos realizados.
-- Layout responsivo, adaptado para diferentes tamanhos de tela.
-- Interface limpa e minimalista.
+- Página inicial com uma breve apresentação do desenvolvedor.
+- Seção de projetos com destaques dos trabalhos realizados.
+- Funcionalidades de login e cadastro de usuários.
+- Filtro de projetos por nome, com campo de busca interativo.
+- Integração com banco de dados relacional PostgreSQL.
+- Formulário de contato funcional com armazenamento no admin do Django.
+- Layout responsivo, adaptado para diferentes dispositivos e tamanhos de tela.
+- Interface moderna, limpa e minimalista.
 
 ## Tecnologias Utilizadas
 
