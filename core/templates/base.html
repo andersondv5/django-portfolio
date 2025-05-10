@@ -1,0 +1,30 @@
+<!-- base.html -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% block title %}DevTeam{% endblock %}</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}?v={{ timestamp }}">
+</head>
+<body>
+
+  <div class="container">
+
+    <header class="topo">
+      <a href="{% url 'home' %}">
+        <img src="{% static 'img/logo.svg' %}" alt="Logo da Equipe" class="logo">
+      </a>
+      <nav class="menu">
+        <a href="{% url 'home' %}#projetos">Projetos</a>
+        <a href="{% url 'contato' %}">Contato</a>
+      </nav>
+    </header>
+
+    {% block content %}{% endblock %}
+
+  </div>
+</body>
+</html>

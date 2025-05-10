@@ -1,0 +1,32 @@
+<!-- home.html -->
+{% extends 'base.html' %}
+{% block title %}Home - DevTeam{% endblock %}
+
+{% block content %}
+<section class="apresentacao">
+  <h1>Somos a Equipe DevTeam.</h1>
+  <h2>Estudantes de Análise e Desenvolvimento de Sistemas.</h2>
+  <p>Este projeto foi desenvolvido em equipe como parte de um trabalho da faculdade de Desenvolvimento Web, com o objetivo de praticar o uso do Django e aprimorar habilidades em programação web.</p>
+  <a class="contato-btn" href="{% url 'contato' %}">Fale conosco →</a>
+</section>
+
+<section id="projetos" class="projetos">
+  <div class="section-header">
+    <h3>Projetos</h3>
+    <a class="projetos-btn" href="{% url 'projetos' %}">Ver mais</a>
+  </div>
+
+  {% for projeto in projetos %}
+    <a href="{{ projeto.link }}" target="_blank" class="card">
+      <div class="info">
+        <h4>{{ projeto.titulo }}</h4>
+        <p>{{ projeto.descricao }}</p>
+      </div>
+      <div class="ano-link">
+        <span class="ano">{{ projeto.ano }}</span>
+      </div>
+    </a>
+  {% endfor %}
+</section>
+
+{% endblock %}

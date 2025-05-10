@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}Contato - DevTeam{% endblock %}
+
+{% block content %}
+  <section class="contato" id="contato">
+    <div class="section-header">
+      <h3>Contato</h3>
+    </div>
+
+    <form method="POST" action="{% url 'contato' %}">
+      {% csrf_token %}
+      <div class="campo">
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" name="nome" required>
+      </div>
+
+      <div class="campo">
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+
+      <div class="campo">
+        <label for="mensagem">Mensagem</label>
+        <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
+      </div>
+
+      <button type="submit">Enviar →</button>
+    </form>
+  </section>
+{% endblock %}

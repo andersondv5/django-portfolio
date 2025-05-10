@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}Projetos | DevTeam{% endblock %}
+
+<form method="get" action="{% url 'projetos:lista' %}">
+  <input type="text" name="q" placeholder="Pesquisar projetos" value="{{ request.GET.q }}">
+  <button type="submit">Buscar</button>
+</form>
+
+{% block content %}
+<section id="projetos" class="projetos">
+  <div class="section-header">
+    <h3>Projetos</h3>
+    <a class="projetos-btn" href="{% url 'home' %}#projetos">Voltar para a home</a>
+  </div>
+
+  {% for projeto in projetos %}
+    <a href="{{ projeto.link }}" target="_blank" class="card">
+      <div class="info">
+        <h4>{{ projeto.titulo }}</h4>
+        <p>{{ projeto.descricao }}</p>
+      </div>
+      <div class="ano-link">
+        <span class="ano">{{ projeto.ano }}</span>
+      </div>
+    </a>
+  {% endfor %}
+</section>
+{% endblock %}
