@@ -2,12 +2,18 @@
 
 {% block title %}Projetos | DevTeam{% endblock %}
 
-<form method="get" action="{% url 'projetos:lista' %}">
-  <input type="text" name="q" placeholder="Pesquisar projetos" value="{{ request.GET.q }}">
-  <button type="submit">Buscar</button>
-</form>
 
 {% block content %}
+
+<form method="get">
+    <input type="text" name="busca" placeholder="Buscar..." value="{{ request.GET.busca }}">
+    <select name="ordenar_por">
+        <option value="titulo" {% if request.GET.ordenar_por == 'titulo' %}selected{% endif %}>Título (A-Z)</option>
+    </select>
+    <button type="submit">Filtrar</button>
+</form>
+
+
 <section id="projetos" class="projetos">
   <div class="section-header">
     <h3>Projetos</h3>

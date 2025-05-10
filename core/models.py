@@ -20,8 +20,6 @@ class Contato(models.Model):
         if len(self.mensagem) < 10:
             raise ValidationError("A mensagem deve ter pelo menos 10 caracteres.")
     
-    
-
 # modelo para projetos
 class Projeto(models.Model):
     titulo = models.CharField(max_length=100)

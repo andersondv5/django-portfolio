@@ -20,6 +20,15 @@
       <nav class="menu">
         <a href="{% url 'home' %}#projetos">Projetos</a>
         <a href="{% url 'contato' %}">Contato</a>
+
+        {% if user.is_authenticated %}
+            <form method="post" action="{% url 'logout' %}" class="form-logout">
+           {% csrf_token %}
+            <button type="submit" class="btn-logout">Sair</button>
+           </form>
+        {% else %}
+          <a href="{% url 'login' %}">Login</a>
+        {% endif %}
       </nav>
     </header>
 
